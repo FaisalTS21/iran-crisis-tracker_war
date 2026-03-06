@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>العمليات العسكرية — أزمة إيران ٢٠٢٦</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0408;--card:#1a0c14;--card2:#241320;--border:#3d1f30;--border2:#4d2f40;
+  --txt:#f5f0f2;--txt2:#b8a0ac;--txt3:#7a6070;
+  --red:#ff3355;--orange:#ff6633;--gold:#ffaa22;--purple:#aa44ff;
+  --blue:#3388ff;--cyan:#22ccdd;--green:#22dd88;--rose:#ff6688;
+}
+body{font-family:'Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;overflow-x:hidden}
+.mono{font-family:'Courier New',monospace}
+.hdr{background:linear-gradient(135deg,#1a0c14,#2a1020,#1a0c14);border-bottom:2px solid #cc1133;padding:14px 16px}
+.hdr-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-i{width:40px;height:40px;background:linear-gradient(135deg,var(--red),var(--orange));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.logo h1{font-size:14px;font-weight:700;color:#fff}
+.logo p{font-size:9px;color:var(--txt3)}
+.last-upd{font-size:8px;color:var(--txt3);margin-top:2px}
+.hdr-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.live-b{display:flex;align-items:center;gap:5px;background:rgba(255,51,85,.1);border:1px solid rgba(255,51,85,.3);border-radius:20px;padding:4px 12px;font-size:10px;color:var(--red)}
+.dot{width:6px;height:6px;background:var(--red);border-radius:50%;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.auto-b{display:flex;align-items:center;gap:5px;background:rgba(34,221,136,.08);border:1px solid rgba(34,221,136,.2);border-radius:20px;padding:4px 10px;font-size:9px;color:var(--green)}
+.adot{width:5px;height:5px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
+.upd-btn{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--red),var(--orange));border:none;border-radius:20px;padding:7px 16px;font-size:11px;font-weight:700;color:#fff;cursor:pointer;font-family:inherit;box-shadow:0 2px 14px rgba(255,51,85,.4);transition:all .2s}
+.upd-btn:hover{transform:translateY(-1px);box-shadow:0 5px 22px rgba(255,51,85,.5)}
+.upd-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.upd-btn .ico{display:inline-block;font-size:14px}
+.upd-btn.spin .ico{animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ticker-wrap{overflow:hidden;margin-top:10px;border-radius:8px;background:rgba(255,51,85,.08);border:1px solid rgba(255,51,85,.2);padding:7px 12px;display:flex;align-items:center;gap:8px}
+.ticker-dot{width:8px;height:8px;background:var(--red);border-radius:50%;flex-shrink:0;animation:blink 1s infinite}
+.ticker-text{font-size:11px;color:var(--rose);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sbar{display:none;align-items:center;gap:8px;background:rgba(255,51,85,.06);border:1px solid rgba(255,51,85,.15);border-radius:8px;padding:8px 14px;margin:8px 16px 0;font-size:11px;color:var(--rose)}
+.sbar.v{display:flex}
+.sp-sm{width:14px;height:14px;border:2px solid rgba(255,51,85,.2);border-top-color:var(--red);border-radius:50%;animation:spin .8s linear infinite;flex-shrink:0}
+.prog-wrap{display:none;margin:6px 16px 0}
+.prog-wrap.v{display:block}
+.prog-bar{height:4px;background:rgba(255,51,85,.15);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--orange));border-radius:2px;transition:width .5s ease;width:0%}
+.prog-steps{display:flex;justify-content:space-between;margin-top:4px}
+.ps{font-size:8px;color:var(--txt3);transition:color .3s}
+.ps.done{color:var(--green)}.ps.active{color:var(--orange);font-weight:700}
+.cd-bar{text-align:center;padding:5px 0 0}
+.cd-inner{display:inline-flex;align-items:center;gap:5px;background:rgba(34,204,221,.06);border:1px solid rgba(34,204,221,.15);border-radius:6px;padding:3px 12px;font-size:9px;color:var(--cyan);font-family:monospace}
+.nav{display:flex;gap:2px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:3px;margin:10px 16px 0;overflow-x:auto}
+.nb{flex:1;min-width:0;padding:9px 5px;border-radius:7px;border:none;background:transparent;color:var(--txt2);font-family:inherit;font-size:10px;font-weight:600;cursor:pointer;text-align:center;transition:all .2s;white-space:nowrap}
+.nb.a{background:linear-gradient(135deg,var(--red),var(--orange));color:#fff}
+main{padding:12px 16px 60px}
+section{display:none}section.a{display:block}
+.sg{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
+@media(min-width:500px){.sg{grid-template-columns:repeat(3,1fr)}}
+.st{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px;position:relative;overflow:hidden;transition:border-color .4s,box-shadow .4s}
+.st::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.sr::before{background:var(--red)}.so::before{background:var(--orange)}.sg2::before{background:var(--gold)}
+.sp2::before{background:var(--purple)}.sb::before{background:var(--blue)}.sgr::before{background:var(--green)}
+.si{font-size:16px;margin-bottom:2px}
+.sv{font-family:monospace;font-size:20px;font-weight:700;margin:2px 0}
+.sl{font-size:10px;color:var(--txt2)}.ss{font-size:9px;color:var(--txt3);margin-top:2px}
+@keyframes numIn{0%{opacity:0;transform:translateY(-6px) scale(1.15)}100%{opacity:1;transform:translateY(0) scale(1)}}
+.num-flash{animation:numIn .5s cubic-bezier(.2,.8,.3,1.2)}
+.cd{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:10px}
+.ch{padding:12px 14px 8px;border-bottom:1px solid rgba(61,31,48,.5);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.ch h3{font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px}
+.ch .ts{font-size:10px;color:var(--txt3)}
+.cb{padding:12px 14px}
+.wait-box{padding:28px;text-align:center;color:var(--txt3);font-size:11px;line-height:2}
+.wait-box .sp-lg{width:26px;height:26px;border:3px solid rgba(255,51,85,.15);border-top-color:var(--red);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 10px}
+.ts-wrap{max-height:400px;overflow-y:auto}
+table{width:100%;border-collapse:collapse;font-size:11px}
+th{background:var(--card2);color:var(--txt3);padding:8px 10px;text-align:right;font-weight:600;font-size:10px;position:sticky;top:0;z-index:2}
+td{padding:7px 10px;border-bottom:1px solid rgba(61,31,48,.3)}
+.b{padding:2px 7px;border-radius:4px;font-size:9px;font-weight:600}
+.br{background:rgba(255,51,85,.15);color:#ff8899}.bg{background:rgba(34,221,136,.12);color:#66eeb8}
+.by{background:rgba(255,170,34,.12);color:#ffc966}.bb{background:rgba(51,136,255,.12);color:#77bbff}
+.tl{position:relative;padding-right:26px}
+.tl::before{content:'';position:absolute;right:9px;top:0;bottom:0;width:2px;background:linear-gradient(var(--blue),var(--red),var(--orange),var(--red))}
+.ti{position:relative;padding:10px 14px;margin-bottom:6px;background:var(--card2);border:1px solid var(--border);border-radius:8px}
+.ti:hover{border-color:var(--border2)}
+.ti::before{content:'';position:absolute;right:-20px;top:14px;width:9px;height:9px;border-radius:50%;border:2px solid var(--bg)}
+.ti.cr::before{background:var(--red);box-shadow:0 0 8px rgba(255,51,85,.5)}
+.ti.hi::before{background:var(--orange)}.ti.me::before{background:var(--gold)}.ti.nw::before{background:var(--green);box-shadow:0 0 10px rgba(34,221,136,.7)}
+.ti.is-new{border-color:rgba(34,221,136,.4);background:rgba(34,221,136,.04)}
+.td{font-family:monospace;font-size:9px;color:var(--cyan);margin-bottom:2px}
+.tt{font-size:12px;font-weight:600;margin-bottom:2px}.te{font-size:10px;color:var(--txt2);line-height:1.5}
+.src{font-size:9px;color:var(--txt3);margin-top:3px}
+.new-tag{display:inline-block;background:rgba(34,221,136,.15);color:var(--green);border:1px solid rgba(34,221,136,.3);border-radius:3px;font-size:8px;padding:0 5px;margin-left:4px}
+.cg{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
+.cc{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;transition:border-color .4s}
+.cc.live{border-color:rgba(34,221,136,.4)}
+.cf{font-size:22px;margin-bottom:2px}.cn{font-size:10px;color:var(--txt2)}
+.ck{font-family:monospace;font-size:20px;font-weight:700;color:var(--red)}.cx{font-size:8px;color:var(--txt3)}
+.ai-wrap{background:linear-gradient(135deg,rgba(255,51,85,.06),rgba(170,68,255,.06));border:1px solid rgba(255,51,85,.2);border-radius:12px;padding:14px;margin-bottom:10px}
+.ai-wrap h3{font-size:13px;display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.abg{display:flex;flex-wrap:wrap;gap:6px}
+.ab{padding:8px 14px;border-radius:8px;border:none;background:linear-gradient(135deg,var(--red),var(--purple));color:#fff;font-family:inherit;font-size:10px;font-weight:600;cursor:pointer}
+.ab:disabled{opacity:.4}
+.ar{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;margin-top:10px;font-size:12px;line-height:1.8;color:var(--txt2);white-space:pre-wrap;display:none}
+.ar.v{display:block}
+.al{display:none;align-items:center;gap:8px;color:var(--red);font-size:12px;margin-top:10px}
+.al.v{display:flex}
+.sp-r{width:14px;height:14px;border:2px solid var(--border);border-top-color:var(--red);border-radius:50%;animation:spin .8s linear infinite}
+.map-outer{position:relative;background:#050210;border-radius:10px;overflow:hidden;border:1px solid var(--border);user-select:none}
+.zoom-controls{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:4px;z-index:10}
+.zc-btn{width:34px;height:34px;background:rgba(26,12,20,.9);border:1px solid var(--border2);border-radius:8px;color:var(--txt);font-size:16px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:all .15s}
+.zc-btn:hover{background:rgba(255,51,85,.2);border-color:var(--red)}
+.zoom-lbl{text-align:center;font-size:9px;color:var(--txt3);margin-top:2px;font-family:monospace}
+.map-filters{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:4px;z-index:10}
+.mf{padding:5px 10px;background:rgba(26,12,20,.88);border:1px solid var(--border2);border-radius:6px;color:var(--txt2);font-size:9px;font-weight:600;cursor:pointer;backdrop-filter:blur(4px);font-family:inherit;white-space:nowrap;transition:all .15s}
+.mf.fa{border-color:var(--cyan);color:var(--cyan);background:rgba(34,204,221,.08)}
+.mf.fu{border-color:var(--red);color:var(--red);background:rgba(255,51,85,.12)}
+.mf.fi{border-color:var(--orange);color:var(--orange);background:rgba(255,102,51,.12)}
+.mf.fh{border-color:var(--purple);color:var(--purple);background:rgba(170,68,255,.12)}
+.map-tip{position:absolute;background:rgba(14,5,12,.97);border:1px solid var(--border2);border-radius:8px;padding:10px 12px;font-size:11px;pointer-events:none;z-index:20;max-width:230px;display:none;box-shadow:0 4px 20px rgba(0,0,0,.6)}
+.map-tip.v{display:block}
+.mt-ttl{font-size:12px;font-weight:700;margin-bottom:4px}
+.mt-dt{font-family:monospace;font-size:9px;color:var(--cyan);margin-bottom:3px}
+.mt-bd{font-size:10px;color:var(--txt2);line-height:1.5}
+.mt-tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:600;margin-top:4px}
+.map-hint{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:9px;color:rgba(100,70,90,.7);pointer-events:none;white-space:nowrap}
+.map-legend{display:flex;flex-wrap:wrap;gap:10px;padding:10px 14px;border-top:1px solid rgba(61,31,48,.4)}
+.leg{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--txt2)}
+.leg-d{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+#mapSvg{display:block;width:100%;touch-action:none;cursor:grab}
+#mapSvg:active{cursor:grabbing}
+.mk{cursor:pointer}
+.p-r{animation:pr 2.2s infinite}@keyframes pr{0%{r:7;opacity:.4}100%{r:22;opacity:0}}
+.p-o{animation:po 2s infinite}@keyframes po{0%{r:5;opacity:.35}100%{r:18;opacity:0}}
+.p-g{animation:pg 2.5s infinite}@keyframes pg{0%{r:6;opacity:.3}100%{r:20;opacity:0}}
+.ft{border-top:1px solid var(--border);padding:16px;text-align:center}
+.ft p{font-size:10px;color:var(--txt3);line-height:1.8}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-top">
+    <div class="logo">
+      <div class="logo-i">⚔️</div>
+      <div>
+        <h1>العمليات العسكرية — أزمة إيران</h1>
+        <p>Iran Crisis 2026 — Military Operations Tracker</p>
+        <div class="last-upd" id="lastUpd">⚠️ اضغط "تحديث الكل" — ستُجلب جميع البيانات من الإنترنت مباشرة</div>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="auto-b"><div class="adot"></div>يومي تلقائي</div>
+      <div class="live-b"><div class="dot"></div>LIVE</div>
+      <button class="upd-btn" id="updBtn" onclick="runUpdate()">
+        <span class="ico">🔄</span> تحديث الكل
+      </button>
+    </div>
+  </div>
+  <div class="ticker-wrap">
+    <div class="ticker-dot"></div>
+    <span class="ticker-text" id="tickerTxt">🔴 اضغط تحديث الكل لجلب أحدث الأخبار من الإنترنت مباشرة...</span>
+  </div>
+</header>
+
+<div class="sbar" id="sbar"><div class="sp-sm"></div><span id="sbarTxt">جاري التحديث...</span></div>
+<div class="prog-wrap" id="prog">
+  <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
+  <div class="prog-steps">
+    <span class="ps" id="p0">📊 الأرقام</span>
+    <span class="ps" id="p1">📋 الجدول</span>
+    <span class="ps" id="p2">💀 الخسائر</span>
+    <span class="ps" id="p3">📍 الضربات</span>
+    <span class="ps" id="p4">🚨 التنبيه</span>
+  </div>
+</div>
+<div class="cd-bar"><span class="cd-inner">⏱ التحديث التلقائي القادم: <span id="cdTimer">24:00:00</span></span></div>
+
+<div class="nav">
+  <button class="nb a" onclick="go(0)">📋 الجدول</button>
+  <button class="nb" onclick="go(1)">🗺️ الخريطة</button>
+  <button class="nb" onclick="go(2)">📍 الضربات</button>
+  <button class="nb" onclick="go(3)">💀 الخسائر</button>
+  <button class="nb" onclick="go(4)">🤖 أخبار AI</button>
+</div>
+
+<main>
+
+<!-- S0 TIMELINE -->
+<section class="a" id="s0">
+  <div class="sg">
+    <div class="st sr"><div class="si">🎯</div><div class="sv" style="color:var(--red)" id="n-targets">—</div><div class="sl">أهداف ضُربت</div><div class="ss" id="n-targets-s">من الإنترنت</div></div>
+    <div class="st so"><div class="si">🚀</div><div class="sv" style="color:var(--orange)" id="n-missiles">—</div><div class="sl">صواريخ + مسيّرات إيران</div><div class="ss" id="n-missiles-s">رد إيراني</div></div>
+    <div class="st sp2"><div class="si">🌍</div><div class="sv" style="color:var(--purple)" id="n-countries">—</div><div class="sl">دول استُهدفت</div><div class="ss">بالرد الإيراني</div></div>
+    <div class="st sb"><div class="si">🏛️</div><div class="sv" style="color:var(--blue)" id="n-officials">—</div><div class="sl">مسؤول إيراني قُتل</div><div class="ss" id="n-officials-s">بما فيهم خامنئي</div></div>
+    <div class="st sg2"><div class="si">💀</div><div class="sv" style="color:var(--gold)" id="n-dead">—</div><div class="sl">إجمالي القتلى</div><div class="ss">جميع الأطراف</div></div>
+    <div class="st sgr"><div class="si">📅</div><div class="sv" style="color:var(--green)" id="n-day">—</div><div class="sl">يوم العملية</div><div class="ss">Epic Fury</div></div>
+  </div>
+  <div class="cd">
+    <div class="ch"><h3>📋 الجدول الزمني الكامل — مباشر من الإنترنت</h3><span class="ts" id="tl-ts">لم يُحدَّث بعد</span></div>
+    <div class="cb" id="tlWrap"><div class="wait-box"><div class="sp-lg"></div>اضغط <strong>تحديث الكل</strong><br>سيجلب Claude الجدول الزمني الكامل من الأخبار</div></div>
+  </div>
+</section>
+
+<!-- S1 MAP -->
+<section id="s1">
+  <div class="cd">
+    <div class="ch"><h3>🗺️ خريطة الضربات التفاعلية</h3><span class="ts">🔍 تكبير + سحب + اضغط النقاط</span></div>
+    <div style="position:relative">
+      <div class="map-outer" id="mapO" style="height:480px">
+        <div class="zoom-controls">
+          <button class="zc-btn" onclick="zI()">+</button>
+          <button class="zc-btn" onclick="zO()">−</button>
+          <button class="zc-btn" onclick="zR()" style="font-size:12px">⌂</button>
+          <div class="zoom-lbl" id="zLbl">100%</div>
+        </div>
+        <div class="map-filters">
+          <button class="mf fa" id="f-all" onclick="flt('all')">🌐 الكل</button>
+          <button class="mf" id="f-us" onclick="flt('us')">🔴 US-Israel</button>
+          <button class="mf" id="f-ir" onclick="flt('ir')">🟠 إيران</button>
+          <button class="mf" id="f-hb" onclick="flt('hb')">🟣 حزب الله</button>
+        </div>
+        <div class="map-tip" id="mTip"></div>
+        <svg id="mapSvg" viewBox="0 0 700 440" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+          <defs>
+            <radialGradient id="rg"><stop offset="0%" stop-color="#ff3355" stop-opacity=".18"/><stop offset="100%" stop-color="#ff3355" stop-opacity="0"/></radialGradient>
+            <radialGradient id="og"><stop offset="0%" stop-color="#ff6633" stop-opacity=".18"/><stop offset="100%" stop-color="#ff6633" stop-opacity="0"/></radialGradient>
+            <radialGradient id="pg2"><stop offset="0%" stop-color="#aa44ff" stop-opacity=".15"/><stop offset="100%" stop-color="#aa44ff" stop-opacity="0"/></radialGradient>
+            <filter id="gl"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <filter id="gl2"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <g id="tg">
+            <rect width="700" height="440" fill="#06030f"/>
+            <line x1="0" y1="220" x2="700" y2="220" stroke="#110820" stroke-width=".5"/>
+            <line x1="350" y1="0" x2="350" y2="440" stroke="#110820" stroke-width=".5"/>
+            <polygon points="30,18 70,8 140,5 200,10 240,28 260,18 280,35 260,55 220,65 160,60 120,70 80,58 50,45 30,40" fill="#18101a" stroke="#3d1f30" stroke-width="1"/>
+            <text x="140" y="38" fill="#5a3550" font-size="11" text-anchor="middle">تركيا</text>
+            <ellipse cx="68" cy="88" rx="18" ry="7" fill="#1c1018" stroke="#3d1f30" stroke-width="1"/>
+            <text x="68" y="82" fill="#4d2f40" font-size="8" text-anchor="middle">قبرص</text>
+            <polygon points="60,65 110,60 140,70 155,90 140,120 100,130 70,115 55,90" fill="#18101a" stroke="#3d1f30" stroke-width="1"/>
+            <text x="100" y="98" fill="#4d2f40" font-size="9" text-anchor="middle">سوريا</text>
+            <polygon points="60,100 72,95 78,110 72,130 58,125" fill="#1e1018" stroke="#3d1f30" stroke-width="1"/>
+            <text x="50" y="118" fill="#4d2f40" font-size="7" text-anchor="end">لبنان</text>
+            <polygon points="58,128 72,125 75,145 72,175 60,178 55,155" fill="#18101a" stroke="#3d1f30" stroke-width="1"/>
+            <text x="46" y="152" fill="#4d2f40" font-size="7" text-anchor="end">إسرائيل</text>
+            <polygon points="75,120 100,130 130,150 120,195 85,210 72,178 75,145" fill="#18101a" stroke="#3d1f30" stroke-width="1"/>
+            <text x="95" y="170" fill="#4d2f40" font-size="9" text-anchor="middle">الأردن</text>
+            <polygon points="140,70 220,65 260,55 280,65 310,90 320,130 310,170 280,200 250,220 200,235 160,215 140,180 140,120 155,90" fill="#18101a" stroke="#3d1f30" stroke-width="1"/>
+            <text x="220" y="150" fill="#4d2f40" font-size="11" text-anchor="middle">العراق</text>
+            <polygon points="280,35 320,25 380,20 440,30 500,25 550,40 590,60 620,100 630,150 620,200 600,240 570,270 540,290 510,300 480,310 440,310 410,290 380,260 350,240 310,225 310,170 320,130 310,90 280,65" fill="#1e0e18" stroke="#7d2550" stroke-width="2"/>
+            <text x="445" y="155" fill="#8a3560" font-size="16" font-weight="bold" text-anchor="middle">إيران</text>
+            <polygon points="280,210 305,200 315,215 310,235 290,240 275,225" fill="#18101a" stroke="#3d1f30" stroke-width="1"/>
+            <text x="294" y="223" fill="#4d2f40" font-size="7" text-anchor="middle">الكويت</text>
+            <polygon points="85,215 120,200 160,215 200,240 250,225 275,230 290,245 310,240 330,260 360,280 380,310 370,350 340,380 280,400 220,410 160,395 100,360 80,320 75,280 80,240" fill="#18101a" stroke="#3d1f30" stroke-width="1"/>
+            <text x="210" y="330" fill="#4d2f40" font-size="13" text-anchor="middle">السعودية</text>
+            <circle cx="340" cy="280" r="5" fill="#18101a" stroke="#3d1f30"/>
+            <text x="340" y="272" fill="#4d2f40" font-size="6" text-anchor="middle">البحرين</text>
+            <polygon points="360,285 370,280 375,300 368,310 358,305" fill="#18101a" stroke="#3d1f30" stroke-width="1"/>
+            <text x="376" y="298" fill="#4d2f40" font-size="7">قطر</text>
+            <polygon points="390,290 440,275 480,285 490,310 460,325 420,320 395,305" fill="#18101a" stroke="#3d1f30" stroke-width="1"/>
+            <text x="438" y="308" fill="#4d2f40" font-size="9" text-anchor="middle">الإمارات</text>
+            <polygon points="480,285 520,260 560,270 580,300 570,340 540,370 500,380 460,330 490,310" fill="#18101a" stroke="#3d1f30" stroke-width="1"/>
+            <text x="528" y="322" fill="#4d2f40" font-size="9" text-anchor="middle">عمان</text>
+            <text x="350" y="355" fill="#12183a" font-size="10" text-anchor="middle" font-style="italic">الخليج العربي</text>
+            <text x="500" y="294" fill="#ff6633" font-size="7" text-anchor="middle" opacity=".6">مضيق هرمز</text>
+            <line x1="100" y1="400" x2="420" y2="140" stroke="#3388ff" stroke-width="1" stroke-dasharray="8,4" opacity=".2"/>
+            <line x1="400" y1="255" x2="296" y2="225" stroke="#ff6633" stroke-width=".8" stroke-dasharray="4,3" opacity=".18"/>
+            <line x1="400" y1="255" x2="452" y2="300" stroke="#ff6633" stroke-width=".8" stroke-dasharray="4,3" opacity=".18"/>
+            <g id="mkL">
+              <g class="mk" data-i="0" data-t="us"><circle cx="420" cy="108" r="32" fill="url(#rg)"/><circle class="p-r" cx="420" cy="108" r="7" fill="#ff3355" opacity=".08"/><circle cx="420" cy="108" r="7" fill="#ff3355" stroke="#ff8899" stroke-width="1.5" filter="url(#gl2)"/><circle cx="420" cy="108" r="3" fill="#fff"/><text x="420" y="97" fill="#ff8899" font-size="9" text-anchor="middle" font-weight="bold">طهران ✦✦✦</text></g>
+              <g class="mk" data-i="1" data-t="us"><circle cx="410" cy="168" r="22" fill="url(#rg)"/><circle cx="410" cy="168" r="5.5" fill="#ff3355" stroke="#ff8899" stroke-width="1.5" filter="url(#gl)"/><circle cx="410" cy="168" r="2" fill="#fff"/><text x="410" y="158" fill="#ff8899" font-size="7.5" text-anchor="middle">أصفهان ☢️</text></g>
+              <g class="mk" data-i="2" data-t="us"><circle cx="396" cy="132" r="4.5" fill="#ff3355" stroke="#ff8899" stroke-width="1.2" filter="url(#gl)"/><text x="382" y="130" fill="#ff8899" font-size="7.5" text-anchor="end">قم</text></g>
+              <g class="mk" data-i="3" data-t="us"><circle cx="330" cy="55" r="4.5" fill="#ff3355" stroke="#ff8899" stroke-width="1.2" filter="url(#gl)"/><text x="330" y="46" fill="#ff8899" font-size="7.5" text-anchor="middle">تبريز</text></g>
+              <g class="mk" data-i="4" data-t="us"><circle cx="320" cy="118" r="4.5" fill="#ff3355" stroke="#ff8899" stroke-width="1.2" filter="url(#gl)"/><text x="307" y="116" fill="#ff8899" font-size="7.5" text-anchor="end">كرمنشاه</text></g>
+              <g class="mk" data-i="5" data-t="us"><circle cx="380" cy="226" r="5.5" fill="#ff3355" stroke="#ff8899" stroke-width="1.5" filter="url(#gl)"/><text x="380" y="216" fill="#ff8899" font-size="7.5" text-anchor="middle">بوشهر ☢️</text></g>
+              <g class="mk" data-i="6" data-t="us"><circle cx="430" cy="216" r="4.5" fill="#ff3355" stroke="#ff8899" stroke-width="1.2" filter="url(#gl)"/><text x="430" y="207" fill="#ff8899" font-size="7.5" text-anchor="middle">شيراز</text></g>
+              <g class="mk" data-i="7" data-t="us"><circle cx="530" cy="274" r="28" fill="url(#og)" opacity=".6"/><circle class="p-g" cx="530" cy="274" r="6" fill="#ffaa22" opacity=".08"/><circle cx="530" cy="274" r="6" fill="#ffaa22" stroke="#ffd566" stroke-width="2" filter="url(#gl2)"/><circle cx="530" cy="274" r="2.5" fill="#fff"/><text x="530" y="262" fill="#ffd566" font-size="8.5" text-anchor="middle" font-weight="bold">🏫 ميناب</text></g>
+              <g class="mk" data-i="8" data-t="ir"><circle cx="295" cy="224" r="22" fill="url(#og)"/><circle class="p-o" cx="295" cy="224" r="5" fill="#ff6633" opacity=".08"/><circle cx="295" cy="224" r="5" fill="#ff6633" stroke="#ffaa66" stroke-width="1.5" filter="url(#gl2)"/><circle cx="295" cy="224" r="2" fill="#fff"/><text x="280" y="240" fill="#ff9977" font-size="7.5" text-anchor="middle">🇺🇸 الكويت</text></g>
+              <g class="mk" data-i="9" data-t="ir"><circle cx="340" cy="280" r="4.5" fill="#ff6633" stroke="#ffaa66" stroke-width="1.2" filter="url(#gl)"/></g>
+              <g class="mk" data-i="10" data-t="ir"><circle cx="366" cy="296" r="5" fill="#ff6633" stroke="#ffaa66" stroke-width="1.5" filter="url(#gl)"/><text x="382" y="296" fill="#ff9977" font-size="7.5">العديد 🇺🇸</text></g>
+              <g class="mk" data-i="11" data-t="ir"><circle cx="457" cy="300" r="22" fill="url(#og)"/><circle class="p-o" cx="457" cy="300" r="5" fill="#ff6633" opacity=".08"/><circle cx="457" cy="300" r="5" fill="#ff6633" stroke="#ffaa66" stroke-width="1.5" filter="url(#gl2)"/><circle cx="457" cy="300" r="2" fill="#fff"/><text x="457" y="290" fill="#ff9977" font-size="7.5" text-anchor="middle">✈️ دبي</text></g>
+              <g class="mk" data-i="12" data-t="ir"><circle cx="440" cy="318" r="4.5" fill="#ff6633" stroke="#ffaa66" stroke-width="1.2" filter="url(#gl)"/><text x="424" y="330" fill="#ff9977" font-size="6.5" text-anchor="middle">أبوظبي</text></g>
+              <g class="mk" data-i="13" data-t="ir"><circle cx="65" cy="149" r="20" fill="url(#og)"/><circle class="p-o" cx="65" cy="149" r="5" fill="#ff6633" opacity=".08"/><circle cx="65" cy="149" r="5" fill="#ff6633" stroke="#ffaa66" stroke-width="1.5" filter="url(#gl2)"/><circle cx="65" cy="149" r="2" fill="#fff"/><text x="65" y="140" fill="#ff9977" font-size="7.5" text-anchor="middle">بيت شيمش</text></g>
+              <g class="mk" data-i="14" data-t="ir"><circle cx="320" cy="260" r="4.5" fill="#ff6633" stroke="#ffaa66" stroke-width="1.2" filter="url(#gl)"/><text x="304" y="258" fill="#ff9977" font-size="6.5" text-anchor="end">رأس تنورة 🛢️</text></g>
+              <g class="mk" data-i="15" data-t="ir"><circle cx="68" cy="88" r="4.5" fill="#ff6633" stroke="#ffaa66" stroke-width="1.2" filter="url(#gl)"/><text x="68" y="100" fill="#ff9977" font-size="6.5" text-anchor="middle">قبرص</text></g>
+              <g class="mk" data-i="16" data-t="hb"><circle cx="65" cy="115" r="18" fill="url(#pg2)"/><circle cx="65" cy="115" r="5" fill="#aa44ff" stroke="#cc99ff" stroke-width="1.5" filter="url(#gl2)"/><circle cx="65" cy="115" r="2" fill="#fff"/><text x="48" y="108" fill="#cc99ff" font-size="7.5" text-anchor="end">حزب الله</text></g>
+              <g class="mk" data-i="17" data-t="ir"><circle cx="210" cy="136" r="4" fill="#ff6633" stroke="#ffaa66" stroke-width="1" filter="url(#gl)"/><text x="210" y="128" fill="#ff9977" font-size="7" text-anchor="middle">بغداد</text></g>
+            </g>
+          </g>
+        </svg>
+        <div class="map-hint">🖱 سحب للتنقل • عجلة للتكبير • اضغط على النقاط للتفاصيل</div>
+      </div>
+    </div>
+    <div class="map-legend">
+      <div class="leg"><div class="leg-d" style="background:#ff3355"></div>ضربات أمريكية-إسرائيلية</div>
+      <div class="leg"><div class="leg-d" style="background:#ffaa22"></div>حادثة مدنية</div>
+      <div class="leg"><div class="leg-d" style="background:#ff6633"></div>رد إيراني</div>
+      <div class="leg"><div class="leg-d" style="background:#aa44ff"></div>حزب الله</div>
+    </div>
+  </div>
+</section>
+
+<!-- S2 STRIKES -->
+<section id="s2">
+  <div class="cd">
+    <div class="ch"><h3>📍 مواقع الضربات — من الإنترنت</h3><span class="ts" id="str-ts">لم يُحدَّث بعد</span></div>
+    <div class="cb ts-wrap" id="strWrap"><div class="wait-box"><div class="sp-lg"></div>اضغط <strong>تحديث الكل</strong> لجلب بيانات الضربات</div></div>
+  </div>
+</section>
+
+<!-- S3 CASUALTIES -->
+<section id="s3">
+  <div class="sg">
+    <div class="st sr"><div class="si">💀</div><div class="sv" style="color:var(--red)" id="c-dead">—</div><div class="sl">إجمالي القتلى</div><div class="ss">جميع الأطراف</div></div>
+    <div class="st so"><div class="si">🏥</div><div class="sv" style="color:var(--orange)" id="c-injured">—</div><div class="sl">إجمالي الجرحى</div></div>
+    <div class="st sr"><div class="si">🏫</div><div class="sv" style="color:var(--rose)" id="c-minab">—</div><div class="sl">أطفال ميناب</div></div>
+  </div>
+  <div class="cg" id="casGrid"><div class="cc" style="grid-column:span 2"><div class="wait-box"><div class="sp-lg"></div>اضغط <strong>تحديث الكل</strong></div></div></div>
+  <div class="cd">
+    <div class="ch"><h3>📋 جدول الخسائر</h3><span class="ts" id="cas-ts">لم يُحدَّث بعد</span></div>
+    <div class="cb ts-wrap" id="casTableWrap"><div class="wait-box"><div class="sp-lg"></div>اضغط <strong>تحديث الكل</strong></div></div>
+  </div>
+</section>
+
+<!-- S4 AI -->
+<section id="s4">
+  <div class="ai-wrap">
+    <h3>🤖 أخبار عسكرية — AI مباشر</h3>
+    <p style="font-size:10px;color:var(--txt2);margin-bottom:10px">Claude يبحث في الإنترنت ويجيب بالعربية</p>
+    <div class="abg">
+      <button class="ab" onclick="aiQ('مالك الروقي Iran war latest')">🎙️ مالك الروقي</button>
+      <button class="ab" onclick="aiQ('Iran Operation Epic Fury military strikes today')">⚔️ آخر العمليات</button>
+      <button class="ab" onclick="aiQ('Iran retaliation missiles drones today')">🚀 الرد الإيراني</button>
+      <button class="ab" onclick="aiQ('Iran war casualties killed injured today')">💀 الخسائر</button>
+      <button class="ab" onclick="aiQ('Hezbollah Israel Lebanon war today')">🇱🇧 حزب الله</button>
+    </div>
+    <div class="al" id="aiL"><div class="sp-r"></div>جاري البحث...</div>
+    <div class="ar" id="aiR"></div>
+  </div>
+</section>
+</main>
+
+<footer class="ft">
+  <p>⚠️ مشروع تحليل بيانات تعليمي — الأرقام من مصادر مفتوحة وقابلة للتغيير</p>
+  <p style="margin-top:4px">صنع بواسطة <span style="color:var(--red);font-weight:700">فيصل فهد العليان</span> — مارس ٢٠٢٦</p>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════
+// MAP TOOLTIP DATA
+// ═══════════════════════════════════════════
+var MD=[
+  {t:'طهران — مجمع خامنئي + IRGC',d:'Feb 28',dt:'مقتل المرشد الأعلى + ٤٠ مسؤول',a:'US-Israel',c:'#ff3355',tp:'us'},
+  {t:'أصفهان — منشأة نووية',d:'Feb 28',dt:'قنابل GBU-57 خارقة',a:'US-Israel',c:'#ff3355',tp:'us'},
+  {t:'قم — مركز ديني/عسكري',d:'Feb 28',dt:'مواقع IRGC',a:'US-Israel',c:'#ff3355',tp:'us'},
+  {t:'تبريز — شمال غرب',d:'Feb 28',dt:'قواعد عسكرية',a:'US-Israel',c:'#ff3355',tp:'us'},
+  {t:'كرمنشاه — غرب',d:'Feb 28',dt:'قواعد صاروخية',a:'US-Israel',c:'#ff3355',tp:'us'},
+  {t:'بوشهر — نووي/صاروخي',d:'Feb 28',dt:'B-2 Stealth بقنابل خارقة',a:'B-2 Bomber',c:'#ff3355',tp:'us'},
+  {t:'شيراز — قاعدة جوية',d:'Feb 28',dt:'سلاح الجو جنوب إيران',a:'US-Israel',c:'#ff3355',tp:'us'},
+  {t:'🏫 مدرسة ميناب',d:'Mar 1',dt:'١٨٠ طفلة — متنازع عليه',a:'متنازع',c:'#ffaa22',tp:'us'},
+  {t:'🇺🇸 قاعدة — الكويت',d:'Mar 1',dt:'٤ جنود أمريكيين — رد إيراني',a:'رد إيراني',c:'#ff6633',tp:'ir'},
+  {t:'🇧🇭 الأسطول الخامس',d:'Mar 1',dt:'قاعدة الجفير',a:'رد إيراني',c:'#ff6633',tp:'ir'},
+  {t:'🇶🇦 قاعدة العديد',d:'Mar 1',dt:'٦٥ صاروخ — ١٦ قطري جرحى',a:'رد إيراني',c:'#ff6633',tp:'ir'},
+  {t:'✈️ مطار دبي DXB',d:'Feb 28',dt:'صواريخ باليستية — ٤ جرحى',a:'رد إيراني',c:'#ff6633',tp:'ir'},
+  {t:'مطار أبوظبي AUH',d:'Feb 28',dt:'مسيّرة — ١ قتيل ٧ جرحى',a:'رد إيراني',c:'#ff6633',tp:'ir'},
+  {t:'🇮🇱 بيت شيمش',d:'Mar 1',dt:'٦ قتلى ٢٠+ جريح',a:'رد إيراني',c:'#ff6633',tp:'ir'},
+  {t:'🛢️ رأس تنورة — أرامكو',d:'Mar 1',dt:'حريق محتوى',a:'رد إيراني',c:'#ff6633',tp:'ir'},
+  {t:'🇨🇾 قاعدة بريطانية — قبرص',d:'Mar 2',dt:'المدرج أُصيب',a:'رد إيراني',c:'#ff6633',tp:'ir'},
+  {t:'🇱🇧 جنوب لبنان',d:'Mar 2',dt:'٣١ قتيل ١٤٩ جريح',a:'حزب الله ↔ إسرائيل',c:'#aa44ff',tp:'hb'},
+  {t:'بغداد — كتائب حزب الله',d:'Mar 1',dt:'٢ قتلى ٥ جرحى',a:'رد إيراني',c:'#ff6633',tp:'ir'}
+];
+
+// ═══════════════════════════════════════════
+// NAV
+// ═══════════════════════════════════════════
+function go(i){
+  document.querySelectorAll('section').forEach(function(s,j){s.className=j===i?'a':'';});
+  document.querySelectorAll('.nb').forEach(function(b,j){b.className=j===i?'nb a':'nb';});
+}
+
+// ═══════════════════════════════════════════
+// API CALL
+// ═══════════════════════════════════════════
+function api(prompt, tokens){
+  return fetch('https://api.anthropic.com/v1/messages',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      model:'claude-sonnet-4-20250514',
+      max_tokens:tokens||1200,
+      tools:[{type:'web_search_20250305',name:'web_search'}],
+      messages:[{role:'user',content:prompt}]
+    })
+  })
+  .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+  .then(function(d){
+    if(d.error)throw new Error(d.error.message);
+    return (d.content||[]).filter(function(b){return b.type==='text';}).map(function(b){return b.text;}).join('\n').trim();
+  });
+}
+
+// ═══════════════════════════════════════════
+// SAFE JSON EXTRACT
+// ═══════════════════════════════════════════
+function getJSON(raw){
+  try{
+    var s=raw.replace(/```json/gi,'').replace(/```/g,'').trim();
+    var i=s.search(/[{\[]/);
+    if(i<0)return null;
+    // find matching closing bracket
+    var open=s[i], close=open==='{'?'}':']';
+    var depth=0, end=-1;
+    for(var j=i;j<s.length;j++){
+      if(s[j]===open)depth++;
+      else if(s[j]===close){depth--;if(depth===0){end=j;break;}}
+    }
+    return end>0?JSON.parse(s.slice(i,end+1)):null;
+  }catch(e){return null;}
+}
+
+// ═══════════════════════════════════════════
+// FLASH NUM ANIMATION
+// ═══════════════════════════════════════════
+function flash(id,val){
+  var el=document.getElementById(id);
+  if(!el||!val||val==='null'||val==='undefined')return;
+  el.textContent=val;
+  el.classList.remove('num-flash');
+  void el.offsetWidth;
+  el.classList.add('num-flash');
+}
+
+// ═══════════════════════════════════════════
+// ESCAPE HTML
+// ═══════════════════════════════════════════
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+// ═══════════════════════════════════════════
+// STEP INDICATOR
+// ═══════════════════════════════════════════
+function step(n,state){
+  document.getElementById('p'+n).className='ps '+state;
+  if(state==='done'){
+    var pct=Math.round(((n+1)/5)*100);
+    document.getElementById('progFill').style.width=pct+'%';
+  }
+}
+function msg(t){document.getElementById('sbarTxt').textContent=t;}
+
+// ═══════════════════════════════════════════
+// ── STEP 1: STATISTICS ──
+// Fetches & replaces ALL 6 stat cards + top of casualties
+// ═══════════════════════════════════════════
+function doStats(dt){
+  step(0,'active');
+  msg('جاري جلب الإحصائيات...');
+  return api(
+    'Search: Iran war Operation Epic Fury statistics '+dt+'\n'+
+    'Reply ONLY with this JSON, no other text:\n'+
+    '{"targets":"e.g.1000+","missiles":"e.g.706+","countries":"e.g.9","officials":"e.g.40+","day":"e.g.يوم٣","dead_total":"e.g.620+","injured_total":"e.g.350+","iran_dead":"e.g.555+","us_dead":"e.g.4","israel_dead":"e.g.11+","lebanon_dead":"e.g.31","minab":"e.g.180","headline":"short Arabic sentence max 80 chars"}',
+    600
+  ).then(function(raw){
+    var d=getJSON(raw);
+    if(d){
+      flash('n-targets',   d.targets);
+      flash('n-missiles',  d.missiles);
+      flash('n-countries', d.countries);
+      flash('n-officials', d.officials);
+      flash('n-day',       d.day);
+      flash('n-dead',      d.dead_total);
+      flash('c-dead',      d.dead_total);
+      flash('c-injured',   d.injured_total);
+      flash('c-minab',     d.minab);
+      if(d.headline) document.getElementById('tickerTxt').textContent='🔴 '+d.headline;
+      // store for grid
+      window._stats=d;
+    }
+    step(0,'done');
+  }).catch(function(e){console.warn('stats:',e);step(0,'done');});
+}
+
+// ═══════════════════════════════════════════
+// ── STEP 2: FULL TIMELINE ──
+// Fetches ALL events chronologically, replaces the timeline div entirely
+// ═══════════════════════════════════════════
+function doTimeline(dt){
+  step(1,'active');
+  msg('جاري جلب الجدول الزمني الكامل...');
+  return api(
+    'Search: Iran war Operation Epic Fury events timeline December 2025 to today '+dt+'\n'+
+    'Return ONLY a JSON array (most recent first). Each item:\n'+
+    '{"d":"date","e":"event title Arabic","s":"cr|hi|me","dt":"details Arabic","sr":"source"}\n'+
+    'Include 15-25 events from Dec 2025 through today. No text outside JSON.',
+    1400
+  ).then(function(raw){
+    var arr=getJSON(raw);
+    if(arr&&Array.isArray(arr)&&arr.length>2){
+      var h='<div class="tl">';
+      arr.forEach(function(ev,i){
+        var isNew=i<3;
+        h+='<div class="ti '+(ev.s||'hi')+(isNew?' is-new nw':' '+(ev.s||'hi'))+'">'
+          +'<div class="td">'+esc(ev.d)+'</div>'
+          +'<div class="tt">'+(isNew?'<span class="new-tag">🆕</span>':'')+esc(ev.e)+'</div>'
+          +'<div class="te">'+esc(ev.dt)+'</div>'
+          +'<div class="src">📰 '+esc(ev.sr)+'</div>'
+          +'</div>';
+      });
+      h+='</div>';
+      document.getElementById('tlWrap').innerHTML=h;
+      document.getElementById('tl-ts').textContent='✅ محدّث '+dt+' — '+arr.length+' حدث';
+    }
+    step(1,'done');
+  }).catch(function(e){console.warn('timeline:',e);step(1,'done');});
+}
+
+// ═══════════════════════════════════════════
+// ── STEP 3: CASUALTIES ──
+// Fetches grid cards + detailed table, replaces both
+// ═══════════════════════════════════════════
+function doCasualties(dt){
+  step(2,'active');
+  msg('جاري جلب أرقام الخسائر...');
+  return api(
+    'Search: Iran war casualties killed injured by country '+dt+'\n'+
+    'Return ONLY JSON (no text outside):\n'+
+    '{"grid":[{"f":"flag","n":"country Arabic","k":"killed","x":"note"}],"table":[{"d":"date","c":"country+flag","cat":"category Arabic","k":"killed","i":"injured","r":"High|Medium"}]}',
+    1000
+  ).then(function(raw){
+    var d=getJSON(raw);
+    if(d){
+      // Grid
+      if(d.grid&&d.grid.length){
+        var gh='';
+        d.grid.forEach(function(r){
+          gh+='<div class="cc live">'
+            +'<div class="cf">'+esc(r.f||r.flag||'')+'</div>'
+            +'<div class="cn">'+esc(r.n||r.name||'')+'</div>'
+            +'<div class="ck">'+esc(r.k||r.killed||'?')+'</div>'
+            +'<div class="cx">'+esc(r.x||r.note||'')+'</div></div>';
+        });
+        document.getElementById('casGrid').innerHTML=gh;
+      }
+      // Table
+      if(d.table&&d.table.length){
+        var th='<table><thead><tr><th>التاريخ</th><th>الدولة</th><th>الفئة</th><th>القتلى</th><th>الجرحى</th><th>الموثوقية</th></tr></thead><tbody>';
+        d.table.forEach(function(r){
+          var rb=r.r==='High'||r.reliability==='High'?'bg':r.r==='Medium'||r.reliability==='Medium'?'by':'br';
+          th+='<tr><td class="mono" style="font-size:10px">'+esc(r.d||r.date||'')+'</td>'
+            +'<td style="font-weight:600">'+esc(r.c||r.country||'')+'</td>'
+            +'<td>'+esc(r.cat||r.category||'')+'</td>'
+            +'<td class="mono" style="color:var(--red);font-weight:700">'+esc(r.k||r.killed||'')+'</td>'
+            +'<td class="mono" style="color:var(--orange)">'+esc(r.i||r.injured||'')+'</td>'
+            +'<td><span class="b '+rb+'">'+esc(r.r||r.reliability||'')+'</span></td></tr>';
+        });
+        th+='</tbody></table>';
+        document.getElementById('casTableWrap').innerHTML=th;
+        document.getElementById('cas-ts').textContent='✅ محدّث '+dt;
+      }
+    }
+    step(2,'done');
+  }).catch(function(e){console.warn('cas:',e);step(2,'done');});
+}
+
+// ═══════════════════════════════════════════
+// ── STEP 4: STRIKES TABLE ──
+// Fetches all strike locations, replaces table entirely
+// ═══════════════════════════════════════════
+function doStrikes(dt){
+  step(3,'active');
+  msg('جاري جلب مواقع الضربات...');
+  return api(
+    'Search: Iran war military strike locations targets list '+dt+'\n'+
+    'Return ONLY JSON array (no text outside):\n'+
+    '[{"l":"location","c":"country flag","t":"strike type","tg":"target type","d":"date","dt":"details Arabic"}]',
+    1000
+  ).then(function(raw){
+    var arr=getJSON(raw);
+    if(arr&&Array.isArray(arr)&&arr.length>2){
+      var h='<table><thead><tr><th>الموقع</th><th>الدولة</th><th>النوع</th><th>الهدف</th><th>التاريخ</th><th>التفاصيل</th></tr></thead><tbody>';
+      arr.forEach(function(r){
+        var t=r.t||r.type||'';
+        var cls=t.indexOf('رد')>=0||t.toLowerCase().indexOf('iran')>=0?'br':t==='متنازع'?'by':'bb';
+        h+='<tr><td style="font-weight:600">'+esc(r.l||r.location||'')+'</td>'
+          +'<td>'+esc(r.c||r.country||'')+'</td>'
+          +'<td><span class="b '+cls+'">'+esc(t)+'</span></td>'
+          +'<td>'+esc(r.tg||r.target||'')+'</td>'
+          +'<td class="mono" style="font-size:10px">'+esc(r.d||r.date||'')+'</td>'
+          +'<td style="font-size:10px;color:var(--txt2)">'+esc(r.dt||r.details||'')+'</td></tr>';
+      });
+      h+='</tbody></table>';
+      document.getElementById('strWrap').innerHTML=h;
+      document.getElementById('str-ts').textContent='✅ محدّث '+dt+' — '+arr.length+' موقع';
+    }
+    step(3,'done');
+  }).catch(function(e){console.warn('strikes:',e);step(3,'done');});
+}
+
+// ═══════════════════════════════════════════
+// ── STEP 5: TICKER HEADLINE ──
+// ═══════════════════════════════════════════
+function doTicker(dt){
+  step(4,'active');
+  return api(
+    'Search: Iran war breaking news today '+dt+'\nWrite ONE short Arabic sentence max 80 chars summarizing the single most important military update today. Nothing else.',
+    150
+  ).then(function(raw){
+    var line=raw.replace(/\n/g,' ').trim();
+    if(line.length>5) document.getElementById('tickerTxt').textContent='🔴 '+line;
+    step(4,'done');
+  }).catch(function(){step(4,'done');});
+}
+
+// ═══════════════════════════════════════════
+// MAIN ORCHESTRATOR
+// ═══════════════════════════════════════════
+var running=false;
+function runUpdate(){
+  if(running)return;
+  running=true;
+  var btn=document.getElementById('updBtn');
+  btn.disabled=true;btn.classList.add('spin');
+  document.getElementById('sbar').className='sbar v';
+  document.getElementById('prog').className='prog-wrap v';
+  document.getElementById('progFill').style.width='0%';
+  ['p0','p1','p2','p3','p4'].forEach(function(id){document.getElementById(id).className='ps';});
+
+  var dt=new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+
+  function wait(ms){return new Promise(function(r){setTimeout(r,ms);});}
+
+  doStats(dt)
+    .then(function(){return wait(1400);})
+    .then(function(){return doTimeline(dt);})
+    .then(function(){return wait(1400);})
+    .then(function(){return doCasualties(dt);})
+    .then(function(){return wait(1400);})
+    .then(function(){return doStrikes(dt);})
+    .then(function(){return wait(1400);})
+    .then(function(){return doTicker(dt);})
+    .then(function(){
+      var now=new Date();
+      document.getElementById('lastUpd').textContent=
+        '✅ تم تحديث جميع البيانات من الإنترنت — '+now.toLocaleTimeString('ar-SA');
+      btn.querySelector('.ico').textContent='✅';
+      setTimeout(function(){btn.querySelector('.ico').textContent='🔄';},4000);
+      resetCD();
+    })
+    .catch(function(e){
+      document.getElementById('lastUpd').textContent='⚠️ خطأ: '+e.message;
+      btn.querySelector('.ico').textContent='⚠️';
+      setTimeout(function(){btn.querySelector('.ico').textContent='🔄';},4000);
+    })
+    .finally(function(){
+      running=false;
+      btn.disabled=false;btn.classList.remove('spin');
+      document.getElementById('sbar').className='sbar';
+      setTimeout(function(){document.getElementById('prog').className='prog-wrap';},4000);
+    });
+}
+
+// ═══════════════════════════════════════════
+// AI MANUAL QUERY
+// ═══════════════════════════════════════════
+function aiQ(q){
+  var ld=document.getElementById('aiL'),rs=document.getElementById('aiR');
+  ld.className='al v';rs.className='ar';
+  document.querySelectorAll('.ab').forEach(function(b){b.disabled=true;});
+  api('ابحث عن: '+q+'\nأجب بالعربية. الأحدث أولاً. إيموجي. المصادر.',900)
+  .then(function(t){rs.textContent=t||'لا نتائج';rs.className='ar v';})
+  .catch(function(e){rs.textContent='خطأ: '+e.message;rs.className='ar v';})
+  .finally(function(){ld.className='al';document.querySelectorAll('.ab').forEach(function(b){b.disabled=false;});});
+}
+
+// ═══════════════════════════════════════════
+// COUNTDOWN — 24H
+// ═══════════════════════════════════════════
+var cd=86400;
+setInterval(function(){
+  if(--cd<=0){cd=86400;runUpdate();}
+  var h=Math.floor(cd/3600),m=Math.floor((cd%3600)/60),s=cd%60;
+  document.getElementById('cdTimer').textContent=(h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+},1000);
+function resetCD(){cd=86400;}
+
+// ═══════════════════════════════════════════
+// MAP — ZOOM / PAN
+// ═══════════════════════════════════════════
+var ms={sc:1,tx:0,ty:0,dr:false,sx:0,sy:0,stx:0,sty:0,lt:0,pd:0,ps:1};
+var svg=document.getElementById('mapSvg');
+var outer=document.getElementById('mapO');
+var tg=document.getElementById('tg');
+function applyTf(){tg.setAttribute('transform','translate('+ms.tx+','+ms.ty+') scale('+ms.sc+')');document.getElementById('zLbl').textContent=Math.round(ms.sc*100)+'%';}
+function clamp(){var W=outer.offsetWidth,H=outer.offsetHeight;ms.tx=Math.min(W*.3,Math.max(W-700*ms.sc-W*.3,ms.tx));ms.ty=Math.min(H*.3,Math.max(H-440*ms.sc-H*.3,ms.ty));}
+function zI(){ms.sc=Math.min(5,ms.sc*1.3);clamp();applyTf();}
+function zO(){ms.sc=Math.max(.5,ms.sc/1.3);clamp();applyTf();}
+function zR(){ms.sc=1;ms.tx=0;ms.ty=0;applyTf();}
+outer.addEventListener('mousedown',function(e){if(e.target.closest('.mk')||e.target.closest('button'))return;ms.dr=true;ms.sx=e.clientX;ms.sy=e.clientY;ms.stx=ms.tx;ms.sty=ms.ty;svg.style.cursor='grabbing';e.preventDefault();});
+document.addEventListener('mousemove',function(e){if(!ms.dr)return;ms.tx=ms.stx+(e.clientX-ms.sx);ms.ty=ms.sty+(e.clientY-ms.sy);clamp();applyTf();});
+document.addEventListener('mouseup',function(){ms.dr=false;svg.style.cursor='grab';});
+outer.addEventListener('wheel',function(e){e.preventDefault();var r=outer.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top,f=e.deltaY<0?1.15:1/1.15,ns=Math.min(5,Math.max(.5,ms.sc*f)),ratio=ns/ms.sc;ms.tx=mx-(mx-ms.tx)*ratio;ms.ty=my-(my-ms.ty)*ratio;ms.sc=ns;clamp();applyTf();},{passive:false});
+outer.addEventListener('touchstart',function(e){if(e.touches.length===1){var t=e.touches[0];ms.dr=true;ms.sx=t.clientX;ms.sy=t.clientY;ms.stx=ms.tx;ms.sty=ms.ty;var n=Date.now();if(n-ms.lt<300)zI();ms.lt=n;}else if(e.touches.length===2){ms.dr=false;var dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY;ms.pd=Math.sqrt(dx*dx+dy*dy);ms.ps=ms.sc;}e.preventDefault();},{passive:false});
+outer.addEventListener('touchmove',function(e){if(e.touches.length===1&&ms.dr){var t=e.touches[0];ms.tx=ms.stx+(t.clientX-ms.sx);ms.ty=ms.sty+(t.clientY-ms.sy);clamp();applyTf();}else if(e.touches.length===2&&ms.pd){var dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY;ms.sc=Math.min(5,Math.max(.5,ms.ps*(Math.sqrt(dx*dx+dy*dy)/ms.pd)));clamp();applyTf();}e.preventDefault();},{passive:false});
+outer.addEventListener('touchend',function(){ms.dr=false;});
+
+// MAP TOOLTIP
+var tip=document.getElementById('mTip');
+document.querySelectorAll('.mk').forEach(function(el){
+  el.addEventListener('click',function(e){
+    e.stopPropagation();
+    var d=MD[parseInt(el.getAttribute('data-i'))];
+    if(!d)return;
+    tip.innerHTML='<div class="mt-ttl" style="color:'+d.c+'">'+esc(d.t)+'</div>'
+      +'<div class="mt-dt">'+esc(d.d)+'</div>'
+      +'<div class="mt-bd">'+esc(d.dt)+'</div>'
+      +'<span class="mt-tag" style="background:'+d.c+'22;color:'+d.c+'">'+esc(d.a)+'</span>';
+    var r=outer.getBoundingClientRect(),x=e.clientX-r.left+14,y=e.clientY-r.top-12;
+    if(x+234>r.width)x=e.clientX-r.left-246;
+    if(y+120>r.height)y=e.clientY-r.top-132;
+    tip.style.left=x+'px';tip.style.top=y+'px';tip.className='map-tip v';
+  });
+});
+outer.addEventListener('click',function(e){if(!e.target.closest('.mk'))tip.className='map-tip';});
+
+// MAP FILTER
+function flt(f){
+  var cls={all:'fa',us:'fu',ir:'fi',hb:'fh'};
+  ['all','us','ir','hb'].forEach(function(k){document.getElementById('f-'+k).className='mf'+(k===f?' '+cls[k]:'');});
+  document.querySelectorAll('.mk').forEach(function(el){var ok=f==='all'||el.getAttribute('data-t')===f;el.style.opacity=ok?'1':'0.07';el.style.pointerEvents=ok?'auto':'none';});
+  tip.className='map-tip';
+}
+
+applyTf();
+</script>
+</body>
+</html>
